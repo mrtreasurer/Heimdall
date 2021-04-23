@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     @endif
-                    @if($allusers->count() > 1)
+                    @if($allusers->count() > 1 && $current_user->id === 1)
                     <div id="switchuser">
                         @if($current_user->avatar)
                         <img class="user-img" src="{{ asset('/storage/'.$current_user->avatar) }}" />
