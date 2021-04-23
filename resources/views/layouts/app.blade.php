@@ -89,21 +89,22 @@
                     </div>
                     @endif
                     @yield('content')
+                    <!-- only show config-buttons for admin user -->
+                    @if($current_user->id === 1)                
                     <div id="config-buttons">
-
                         
                         @if(Route::is('dash') || Route::is('tags.show'))
                         <a id="config-button" class="config" href=""><i class="fas fa-exchange"></i></a>
                         @endif
     
                         <a id="dash" class="config" href="{{ route('dash', []) }}"><i class="fas fa-th"></i></a>
-                        @if($current_user->id === 1)
                         <a id="users" class="config" href="{{ route('users.index', []) }}"><i class="fas fa-user"></i></a>
-                        @endif
                         <a id="items" class="config" href="{{ route('items.index', []) }}"><i class="fas fa-list"></i></a>
                         <a id="folder" class="config" href="{{ route('tags.index', []) }}"><i class="fas fa-tag"></i></a>
                         <a id="settings" class="config" href="{{ route('settings.index', []) }}"><i class="fas fa-cogs"></i></a>
                     </div>
+                    @endif
+
                 </main>
 
             </div>
